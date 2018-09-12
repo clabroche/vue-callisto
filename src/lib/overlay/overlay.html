@@ -1,0 +1,29 @@
+<transition name='openState'>
+  <div 
+    class="host"
+    v-if="isOpen"
+    v-bind:class="[direction, ghost ? 'ghost': '']"
+    @click="close($event)"
+    ref="host">
+    <div class="host-container" v-bind:class="{width:width, height:height}" @click.stop>
+      <div class="host-title">
+        <div v-if='title'>
+          {{title}}
+        </div>
+        <div v-if='!title'>
+          <slot name="title"></slot>
+        </div>
+        <div class="close" @click.prevent="out(false)">x</div>
+      </div>
+      <div class="host-body">
+        <div v-if='body'>{{body}}</div>
+        <slot v-if='!body' name="body"></slot>
+      </div>
+      <div class="host-actions" v-if='!noActions'>
+        <button class="host-action host-cancel" @click="out(false)">{{cancelButton}}</button>
+        <button class="host-action host-ok" v-bind:class="{'host-disable': form && form.invalid}" v-bind:disabled="form && form.invalid"
+          @click="out(true)">{{validateButton}}</button>
+      </div>
+    </div> 
+  </div>
+</transition>

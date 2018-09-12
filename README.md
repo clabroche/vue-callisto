@@ -1,4 +1,4 @@
-# vue-defi-core
+# vue-callisto
 
 ## Project setup
 ```

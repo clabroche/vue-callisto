@@ -1,0 +1,16 @@
+
+<section class="home">
+  <h1>home Component</h1>
+  <button @click="add()">Add</button>
+  <button @click="openPopup()">openPopup</button>
+  <notifs></notifs>
+  <popup ref='popup'>
+    <div slot='title'>
+      dedle
+    </div>
+    <div slot='body'>
+      <vue-form-generator :schema="schema" :model="model" :options="formOptions"></vue-form-generator>
+    </div>
+  </popup>
+</section>
+
